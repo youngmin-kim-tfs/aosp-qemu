@@ -606,7 +606,7 @@ void ToolWindow::hideEvent(QHideEvent*) {
 }
 
 void ToolWindow::show() {
-    QFrame::show();
+    //QFrame::show();
     setFixedSize(size());
 
     if (mIsVirtualSceneWindowVisibleOnShow) {
