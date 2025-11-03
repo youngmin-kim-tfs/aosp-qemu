@@ -3110,11 +3110,12 @@ bool EmulatorQtWindow::hasSkin() const {
 }
 
 bool EmulatorQtWindow::hasFrame() const {
-    if (mFrameAlways || mInZoomMode) {
-        return true;
-    }
-    bool hasFrame = !hasSkin();
-    return hasFrame;
+    return false;
+    // if (mFrameAlways || mInZoomMode) {
+    //     return true;
+    // }
+    // bool hasFrame = !hasSkin();
+    // return hasFrame;
 }
 
 bool EmulatorQtWindow::isInZoomMode() const {
