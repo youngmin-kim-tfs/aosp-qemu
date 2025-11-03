@@ -121,7 +121,7 @@ static const QAndroidEmulatorWindowAgent sQAndroidEmulatorWindowAgent = {
         .getRotation = []() -> int { return getRotation(); },
         .showMessage =
                 [](const char* message, WindowMessageType type, int timeoutMs) {
-                    if (const auto win = EmulatorQtWindow::getInstance()) {
+                    if (const auto win = static_cast<EmulatorQtWindow*>(nullptr)) { //EmulatorQtWindow::getInstance()) {
                         win->showMessage(
                                 QString::fromUtf8(message),
                                 static_cast<Ui::OverlayMessageType>(type),
@@ -145,7 +145,7 @@ static const QAndroidEmulatorWindowAgent sQAndroidEmulatorWindowAgent = {
                    void* context,
                    void (*func)(void*),
                    int timeoutMs) {
-                    if (const auto win = EmulatorQtWindow::getInstance()) {
+                    if (const auto win = static_cast<EmulatorQtWindow*>(nullptr)) { //EmulatorQtWindow::getInstance()) {
                         win->showMessageWithDismissCallback(
                                 QString::fromUtf8(message),
                                 static_cast<Ui::OverlayMessageType>(type),
