@@ -65,8 +65,8 @@ struct AUserConfig {
 #define KEY_EXTENDED_CONTROLS_VER "extended_controls.vanchor"
 #define  KEY_UUID      "uuid"
 
-#define  DEFAULT_X 100
-#define  DEFAULT_Y 100
+#define  DEFAULT_X 0
+#define  DEFAULT_Y 0
 #define  DEFAULT_SCALE -1.0
 #define DEFAULT_RESIZABLE_CONFIG_ID -1
 
@@ -374,12 +374,12 @@ auserConfig_save( AUserConfig*  uconfig )
     // coordinates are now valid, which is causing quite some problems in single-monitor setups,
     // or when monitor arrangement changes. Let's just reset the window position back to the default
     // for now.
-    // iniFile_setInteger(ini, KEY_WINDOW_X, uconfig->windowX);
-    // iniFile_setInteger(ini, KEY_WINDOW_Y, uconfig->windowY);
-    // iniFile_setDouble(ini, KEY_WINDOW_SCALE, uconfig->windowScale);
-    iniFile_setInteger(ini, KEY_WINDOW_X, DEFAULT_X);
-    iniFile_setInteger(ini, KEY_WINDOW_Y, DEFAULT_Y);
-    iniFile_setDouble(ini, KEY_WINDOW_SCALE, DEFAULT_SCALE);
+    iniFile_setInteger(ini, KEY_WINDOW_X, uconfig->windowX);
+    iniFile_setInteger(ini, KEY_WINDOW_Y, uconfig->windowY);
+    iniFile_setDouble(ini, KEY_WINDOW_SCALE, uconfig->windowScale);
+    // iniFile_setInteger(ini, KEY_WINDOW_X, DEFAULT_X);
+    // iniFile_setInteger(ini, KEY_WINDOW_Y, DEFAULT_Y);
+    // iniFile_setDouble(ini, KEY_WINDOW_SCALE, DEFAULT_SCALE);
 
     iniFile_setInteger(ini, KEY_RESIZABLE_CONFIG_ID,
                        uconfig->resizableConfigId);
