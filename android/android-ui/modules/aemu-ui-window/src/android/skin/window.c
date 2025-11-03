@@ -1730,10 +1730,10 @@ SkinWindow* skin_window_create(SkinLayout* slayout,
 
     // If the window is still too big, adjust to about 30% to 80% of the screen size.
     if (enable_scale) {
-        if ((0.8 * monitor.size.w) < (win_w * scale_w) && win_w > 1.)
-            scale_w = 0.80 * monitor.size.w / win_w;
-        if ((0.8 * monitor.size.h) < (win_h * scale_h) && win_h > 1.)
-            scale_h = 0.80 * monitor.size.h / win_h;
+        if ((1.0 * monitor.size.w) < (win_w * scale_w) && win_w > 1.)
+            scale_w = 1.00 * monitor.size.w / win_w;
+        if ((1.0 * monitor.size.h) < (win_h * scale_h) && win_h > 1.)
+            scale_h = 1.00 * monitor.size.h / win_h;
         if ((0.3 * monitor.size.w) > (win_w * scale_w) && win_w > 1.)
             scale_w = 0.30 * monitor.size.w / win_w;
         if ((0.3 * monitor.size.h) > (win_h * scale_h) && win_h > 1.)
