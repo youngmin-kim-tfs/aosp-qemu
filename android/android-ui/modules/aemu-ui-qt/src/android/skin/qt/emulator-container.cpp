@@ -364,14 +364,14 @@ void EmulatorContainer::showEvent(QShowEvent* event) {
     // window as it is being dragged (i.e. same as on Win and Linux). The only
     // way to achieve this on OS X is apparently to make the tool window a
     // "child" of the main window (using OS X's native API).
-    Q_ASSERT(mEmulatorWindow->toolWindow());
-    mEmulatorWindow->toolWindow()
-            ->showNormal();  // force creation of native window id
-    WId tool_wid = mEmulatorWindow->toolWindow()->effectiveWinId();
-    tool_wid = (WId)getNSWindow((void*)tool_wid);
-    if (wid && tool_wid) {
-        nsWindowAdopt((void*)wid, (void*)tool_wid);
-    }
+    // Q_ASSERT(mEmulatorWindow->toolWindow());
+    // mEmulatorWindow->toolWindow()
+    //         ->showNormal();  // force creation of native window id
+    // WId tool_wid = mEmulatorWindow->toolWindow()->effectiveWinId();
+    // tool_wid = (WId)getNSWindow((void*)tool_wid);
+    // if (wid && tool_wid) {
+    //     nsWindowAdopt((void*)wid, (void*)tool_wid);
+    // }
 #endif  // __APPLE__
 
     // showEvent() gets called when the emulator is minimized because we are
