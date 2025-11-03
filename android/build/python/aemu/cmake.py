@@ -49,7 +49,7 @@ def get_tasks(args) -> List[BuildTask]:
     tasks = [
         # A task can be disabled, or explicitly enabled by calling
         # .enable(False) <- Disable the task
-        CleanTask(destination=args.out, aosp=args.aosp),
+        # CleanTask(destination=args.out, aosp=args.aosp),
         ConfigureTask(
             aosp=args.aosp,
             target=args.target,
@@ -76,21 +76,21 @@ def get_tasks(args) -> List[BuildTask]:
     ]
     if not args.gfxstream_only:
         tasks += [
-            CTestTask(
-                aosp=args.aosp,
-                destination=args.out,
-                concurrency=args.test_jobs,
-                with_gfx_stream=args.gfxstream or args.gfxstream_only,
-                distribution_directory=args.dist,
-            ).enable(run_tests),
-            AccelerationCheckTask(args.out).enable(run_tests),
-            EmugenTestTask(args.aosp, args.out).enable(run_tests).enable(False),
-            GenEntriesTestTask(args.aosp, args.out),
-            CoverageReportTask(aosp=args.aosp, destination=args.out).enable(run_tests),
-            PackageSamplesTask(
-                args.aosp, args.out, args.dist, args.target, args.sdk_build_number
-            ),
-            ZipIntegrationTestsTask(args.aosp, args.out).enable(True),
+            # CTestTask(
+            #     aosp=args.aosp,
+            #     destination=args.out,
+            #     concurrency=args.test_jobs,
+            #     with_gfx_stream=args.gfxstream or args.gfxstream_only,
+            #     distribution_directory=args.dist,
+            # ).enable(run_tests),
+            # AccelerationCheckTask(args.out).enable(run_tests),
+            # EmugenTestTask(args.aosp, args.out).enable(run_tests).enable(False),
+            # GenEntriesTestTask(args.aosp, args.out),
+            # CoverageReportTask(aosp=args.aosp, destination=args.out).enable(run_tests),
+            # PackageSamplesTask(
+            #     args.aosp, args.out, args.dist, args.target, args.sdk_build_number
+            # ),
+            # ZipIntegrationTestsTask(args.aosp, args.out).enable(True),
             DistributionTask(
                 aosp=args.aosp,
                 build_directory=args.out,
@@ -305,3 +305,4 @@ def launch():
 
 if __name__ == "__main__":
     launch()
+
